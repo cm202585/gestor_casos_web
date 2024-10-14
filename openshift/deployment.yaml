@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gestor-casos-web
+  namespace: herwendy-dev
+  labels:
+    app: gestor-casos-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gestor-casos-web
+  template:
+    metadata:
+      labels:
+        app: gestor-casos-web
+    spec:
+      containers:
+        - name: gestor-casos-web
+          image: image-registry.openshift-image-registry.svc:5000/herwendy-dev/gestor-casos-web:latest  # Actualiza la imagen según sea necesario
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+          imagePullPolicy: Always
+      restartPolicy: Always
