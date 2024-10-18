@@ -21,7 +21,7 @@ public class Conexion {
         try {
             if(conexion==null || conexion.isClosed()){
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                conexion = DriverManager.getConnection("jdbc:mysql://root:WwvVKCpMaOcQjsdHWlqPHMgewNRJDmGS@mysql.railway.internal:3306/bdd_telecomunicaciones_sv?useSSL=false", "root", "WwvVKCpMaOcQjsdHWlqPHMgewNRJDmGS");
+                conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdd_telecomunicaciones_sv?useSSL=false", "root", "");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
